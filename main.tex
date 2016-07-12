@@ -1,0 +1,100 @@
+\documentclass[11pt]{beamer}
+\usetheme{OIE}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{pifont}
+\usepackage{xcolor}
+\usepackage[natbib=true,backend=bibtex,style=authoryear]{biblatex}
+\author{Dominik Both, Tonio Weidler}
+\title{Open Information Extraction}
+%\setbeamercovered{transparent} 
+%\setbeamertemplate{navigation symbols}{} 
+%\logo{} 
+\institute{Institut für Computerlinguistik, Universität Heidelberg} 
+\date{15.07.2016} 
+\subject{} 
+\definecolor{lightgray}{gray}{0.8}
+
+\begin{document}
+
+% AUTOMATISMEN
+\AtBeginSection{\frame{\sectionpage}}
+\AtBeginSubsection{\frame{\subsectionpage}}
+
+
+% TEMPLATING
+\setbeamertemplate{title page}{
+	\center 
+		\begin{beamercolorbox}[center]{part title}
+	      \Huge\inserttitle\par
+	    \end{beamercolorbox}
+	    \vspace{15pt}
+		\insertauthor\\
+		\vspace{15pt}		
+		Proseminar \textit{Text Mining}\\
+		Andrea Zielinski\\
+		\vspace{15pt}
+		\insertinstitute, \insertdate
+}
+
+\defbeamertemplate{section page}{wiqe}[1][]{%
+  \begin{centering}
+    \begin{beamercolorbox}[center]{part title}
+      \Huge\insertsection\par
+    \end{beamercolorbox}
+  \end{centering}
+}
+
+\defbeamertemplate{subsection page}{wiqe}[1][]{%
+  \begin{centering}
+    \begin{beamercolorbox}[center]{}
+      \usebeamerfont{subsection title}\usebeamercolor[fg]{subsection name}\insertsection\par
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=2pt,center]{part title}
+		\huge\insertsubsection\par
+    \end{beamercolorbox}
+  \end{centering}
+}
+\setcounter{tocdepth}{1}
+\setbeamertemplate{section page}[wiqe]
+\setbeamertemplate{subsection page}[wiqe]
+
+% COMMANDS
+\newcommand{\hitem}{
+	\item[\color{lightgray}\rule{0.5em}{0.5em}]
+}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Strukturierung}
+    \tableofcontents
+\end{frame}
+
+\section{Einleitung}
+\section{OIE - Grundlagen}
+	\subsection{Motivation und Hürden}
+	\subsection{Verfahren}
+	\subsection{Datenrepräsentationsformen}
+\section{Anwendungsbeispiel: LODifier}
+	\subsection{Struktur}
+	\subsection{Preprocessing}
+	\subsection{RDF Construction}
+	\subsection{Bewertung}
+\section{LODifier und andere Systeme im Kontext}
+	\subsection{Vergleich}
+	\subsection{Bewertung der Ansätze}
+\section{Fazit und Ausblick}
+	\subsection{Probleme und Hürden}
+	\subsection{Entwicklungsmöglichkeiten}
+
+\end{document}
