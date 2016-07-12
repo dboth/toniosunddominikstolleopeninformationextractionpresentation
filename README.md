@@ -1,2 +1,0 @@
-# toniosunddominikstolleopeninformationextractionpresentation
-Siehe Name
