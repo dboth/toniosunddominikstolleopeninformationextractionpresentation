@@ -84,10 +84,10 @@
 \section{Introduction to Information Extraction}
 	\begin{frame}{What is Information Extraction?}
 			\begin{center}
-				Goal of Information Extraction is automatically extracting information from unseen text
-				Information: entities, relations, events...
-				
-				To make the dough for a good pizza, we start with putting 1kg of flour into the mixing bowl.
+				Goal of Information Extraction is automatically extracting information from unseen text\\
+				Information: entities, relations, events...\\
+				\vspace{15pt}
+				To make the dough for a good pizza, we start with putting 1kg of flour into the mixing bowl.\\
 				(1kg of flour, put into, mixing bowl)
 			\end{center}
 	\end{frame}
@@ -420,14 +420,14 @@
 				\item \textbf{drsclass:} contains Boxer classes (event, person, ...) and :named relation
 				\item \textbf{drsrel:} contains Boxer relations (agent, patient, ...)
 				\item \textbf{ne:} contains the named entity URIs
-				\item \textbf{reify:} 
+				\item \textbf{reify:} reification (embedding propositions into propositions)
 			\end{itemize}
 			}
 		
 			\only<2>{
 			And uses standard namespaces:
 			\begin{itemize}
-				\item \textbf{rdf:} mainly for rdf:type
+				\item \textbf{rdf:} mainly for rdf:type and reification
 				\item \textbf{owl:} for owl:sameAs
 			\end{itemize}
 			}
@@ -460,7 +460,7 @@
 					\textit{\_:x rdf:type wn30:OPENCLASS, class:OPENCLASS}
 				\item<2-3> create triples from binary relations (agent, theme, ...)\\
 					\textit{\_:x drsrel:RELATION \_:y}
-				\item<3> REIFY
+				\item<3> recursive reification of embedded propositions (eg. by \textit{report} or \textit{says)}
 			\end{enumerate}
 		\end{frame}
 
@@ -500,6 +500,31 @@
 		\end{frame}
 	\subsection{Experiments}
 	\subsection{Conclusions}
+		\begin{frame}{What to draw from this?}
+
+		\end{frame}			
+		
+		\begin{frame}{What we liked}
+			\begin{itemize}
+				\item full-text OIE
+				\item relations arent overspecified
+				\item TO BE EXTENDED
+			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}{What we didnt like}
+			\begin{itemize}
+				\item Redundant processes like NER
+				\item BlankNode Massacre
+				\item confusing boxer relations not simplified for RDF (will be hard to search through)
+				\item TO BE EXTENDED
+				
+				\vspace{15pt}
+				
+				\item Paper scraches only the surface of the system
+				\item Some points are unclear / not even described
+			\end{itemize}
+		\end{frame}
 \section{OIE Systems in Context}
 	\subsection{Comparison}
 	\subsection{Evaluating the Approaches}
