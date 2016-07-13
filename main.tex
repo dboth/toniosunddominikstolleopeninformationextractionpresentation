@@ -216,15 +216,21 @@
 			\end{itemize}
 		\end{frame}
 		
-		\begin{frame}{Basic relations (built in)}
-			\begin{table}[]
-				\centering
-				\begin{tabular}{ll}
-				\textbf{Relation} & \textbf{Functionality} \\
-				rdf:type (a)      & x is of type y         \\
-				owl:sameAs        & x equals y           	
-				\end{tabular}
-			\end{table}
+		\begin{frame}{Vocabularies \& Ontologies}
+			Several vocabularies provide useful relations and functionality, eg.:
+			\begin{itemize}
+				\item RDF (rdf:type, ...)
+				\item RDFS (rdfs:subClassOf, rdfs:domain, rdfs:range, ...)
+				\item OWL (owl:sameAs, owl:SymmetricProperty, ...)
+				\item FOAF
+			\end{itemize}
+			
+			Ontologies are huge RDF Graphs containing many triples, eg.:
+			\begin{itemize}
+				\item DBpedia
+				\item Wikidata
+				\item WordNet
+			\end{itemize}						
 		\end{frame}
 		
 		\begin{frame}[fragile]{RDF Syntax}
@@ -242,6 +248,7 @@
 				\includegraphics[scale=0.4]{img/oie-rdf-example.png}
 			\end{center}			
 		\end{frame}
+
 \section{Example: LODifier}
 	\begin{frame}{LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012}
 		\begin{center}
@@ -377,29 +384,93 @@
 			\end{center}
 		\end{frame}			
 
+		
+
 		\begin{frame}{Namespaces/Vocabularies}
-			LODifier creates several namepaces:
+			\only<1>{
+			LODifier introduces several namepaces:
 			\begin{itemize}
-				\item drsclass:
-				\item class:
-				\item drsrel:
-				\item ne:
-				\item reify:
+				\item \textbf{drsclass:} contains Boxer classes (event, person, ...) and :named relation
+				\item \textbf{drsrel:} contains Boxer relations (agent, patient, ...)
+				\item \textbf{ne:} contains the named entity URIs
+				\item \textbf{reify:} 
 			\end{itemize}
-			
+			}
+		
+			\only<2>{
 			And uses standard namespaces:
 			\begin{itemize}
-				\item rdf:
-				\item owl:
+				\item \textbf{rdf:} mainly for rdf:type
+				\item \textbf{owl:} for owl:sameAs
 			\end{itemize}
+			}
 			
-			As well as the two ontologies:
+			\only<3>{
+			Finally the two ontologies:
 			\begin{itemize}
-				\item wn30:
-				\item dbpedia:
+				\item \textbf{wn30:} contains all WordNet URIs
+				\item \textbf{dbpedia:} contains the dbpedia URIs
+				\item \textbf{class:} contains classes not in wn30 nor in dbpedia
 			\end{itemize}
+			}
 		\end{frame}			
+		
+		\begin{frame}{RDF Construction Strategy}
+			\begin{enumerate}
+				\item<1-4> Create a blanknode \textit{\_:x} for each discourse referent (x0, x1, ...)
+				\item<2-4> if NE, then create\\
+					\textit{\_:x drsclass:named ne:URI}
+				\item<3-4> if NE and DBpedia URI exists create\\
+					\textit{\_:x owl:sameAs dbpedia:URI}
+				\item<4> via rdf:type assign closed classes (event, person, ...)\\
+					\textit{\_:x rdf:type drsclass:CLOSEDCLASS}
+			\end{enumerate}		
+		\end{frame}
+		
+		\begin{frame}{RDF Construction Strategy II}
+			\begin{enumerate}							
+				\item<1-3> via rdf:type assign open classes (die, programming\_language, ...)\\
+					\textit{\_:x rdf:type wn30:OPENCLASS, class:OPENCLASS}
+				\item<2-3> create triples from binary relations (agent, theme, ...)\\
+					\textit{\_:x drsrel:RELATION \_:y}
+				\item<3> REIFY
+			\end{enumerate}
+		\end{frame}
 
+		\begin{frame}[fragile]{RDF Construction: Output}
+			\begin{Verbatim}[fontsize=\tiny]
+				_:var0x0 drsclass:named ne:john_mccarthy ;
+				         rdf:type drsclass:male , foaf:Person ;
+				         owl:sameAs dbpedia:John_McCarthy_(computer_scientist) .
+				_:var0x1 rdf:type class:programming_language ;
+				         owl:sameAs dbpedia:Programming_language .
+				_:var0x2 drsrel:nn _:var0x1 .
+				_:var0x2 drsclass:named ne:lisp ;
+				         owl:sameAs dbpedia:Lisp_(programming_language) .
+				_:var0x3 drsclass:named ne:the_new_york_times ;
+				         owl:sameAs dbpedia:The_New_York_Times .
+				_:var0x4 rdf:type drsclass:event , wn30:wordsense-invent-verb-2 .
+				         drsrel:agent _:var0x0 ; drsrel:patient _:var0x2 .
+				_:var0x5 rdf:type drsclass:event , wn30:wordsense-report-verb-3 ;
+				         drsrel:agent _:var0x3 ; drsrel:theme _:var0x6 .
+				_:var0x6 rdf:type drsclass:proposition , reify:proposition , reify:conjunction ;
+				         reify:conjunct [ rdf:subject _:var0x7 ;
+				                          rdf:predicate rdf:type ;
+				                          rdf:object drsclass:event . ]
+				         reify:conjunct [ rdf:subject _:var0x7 ;
+				                          rdf:predicate rdf:type ;
+				                          rdf:object wn30:wordsense-die-verb-1 . ]
+				         reify:conjunct [ rdf:subject _:var0x7 ;
+				                          rdf:predicate drsrel:agent ;
+				                          rdf:object _:var0x0 . ]
+			\end{Verbatim}
+		\end{frame}
+		
+		\begin{frame}{RDF Construction: Output as Graph}
+			\begin{center}
+				\includegraphics[scale=0.23]{img/oie-lodifier-rdf-output.png}
+			\end{center}
+		\end{frame}
 	\subsection{Conclusions}
 \section{OIE Systems in Context}
 	\subsection{Comparison}
