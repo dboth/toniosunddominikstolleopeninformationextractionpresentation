@@ -80,37 +80,38 @@
     \tableofcontents
 \end{frame}
 
-\section{Einleitung}
-\section{OIE - Grundlagen}
-	\subsection{Motivation und Hürden}
-	\subsection{Verfahren}
-	\subsection{Datenrepräsentationsformen}
-		\begin{frame}{Standardpattern}
+\section{Introduction}
+\section{OIE - Principles}
+	\subsection{Motivation}
+	\subsection{Methods}
+	\subsection{Data Representation}
+		\begin{frame}{Standard Patterns}
 			\begin{center}
 				\includegraphics[scale=0.5]{img/oie-pattern.png}\\
 				\vspace{15pt}
-				\textbf{Argument A} geht eine gerichtete \textbf{Relation} mit \textbf{Argument B} ein.
+				\textbf{Argument A} is in a directed \textbf{relation} to \textbf{Argument B}.
 			\end{center}
 		\end{frame}
 		
-		\begin{frame}{Unnormierte Annotation}
+		\begin{frame}{Unnormalized Annotation}
 			\begin{center}
 				(argument\_a, predicate\_x, argument\_b)\\
 				(argument\_a, predicate\_y, argument\_c)\\
 				(argument\_a, predicate\_y, argument\_d)
 			\end{center}
 			\vspace{15pt}
-			\textbf{Probleme}\\
+			\textbf{Problems}\\
 			\begin{itemize}
 				\item redundant
-				\item unnormiert
-				\item kann nur zweistellige Relationen ausdrücken
+				\item unnormalized
+				\item can only produce binary predicates
 			\end{itemize}
 		\end{frame}
 		
-		\begin{frame}{RDF und Linked Data}
+		\begin{frame}{RDF and Linked Data}
 			\begin{block}{Resource Description Framework}
-				Modelliert Aussagen (triples) über \textbf{Subjekte}, \textbf{Objekte} und \textbf{Prädikate}, in denen das Objekt das Subjekt anhand einer Relation (dem Prädikat) genauer beschreibt. Dabei entseht ein gerichteter Graph.
+				Models propositions by constructing \textit{triples} including \textbf{Subjects}, \textbf{Objects} and \textbf{Predicates}\\
+				Generates a directed graph
 			\end{block}
 			\vspace{10pt}
 			\begin{center}
@@ -120,14 +121,14 @@
 			\end{center}
 		\end{frame}
 		
-		\begin{frame}{RDF Konzepte und Notationen}
+		\begin{frame}{RDF Concepts and Notation}
 			\begin{itemize}
 				\item \textbf{URIs}\\
-					macht Ressourcen (S, R, O) eindeutig identifizierbar und verweist auf zusätzlich Informationen
-				\item \textbf{Interpretierbar}
-					erlaubt Schlussfolgerungen nach definierten Regeln
-				\item \textbf{Turtle}
-					Syntax erlaubt verkürzte Schreibweisen
+					identifies ressources (S, R, O) distinctivly and references further informations (triples)
+				\item \textbf{Conclusions}\\
+					allows to draw conclusions using rules
+				\item \textbf{Turtle}\\
+					allows syntax abbreviations
 			\end{itemize}
 		\end{frame}
 		
@@ -146,16 +147,16 @@
 				\includegraphics[scale=0.4]{img/oie-rdf-example.png}
 			\end{center}			
 		\end{frame}
-\section{Anwendungsbeispiel: LODifier}
-	\subsection{Struktur}
+\section{Example: LODifier}
+	\subsection{Architecture}
 	\subsection{Preprocessing}
 	\subsection{RDF Construction}
-	\subsection{Bewertung}
-\section{LODifier und andere Systeme im Kontext}
-	\subsection{Vergleich}
-	\subsection{Bewertung der Ansätze}
-\section{Fazit und Ausblick}
-	\subsection{Probleme und Hürden}
-	\subsection{Entwicklungsmöglichkeiten}
+	\subsection{Conclusions}
+\section{OIE Systems in Context}
+	\subsection{Comparison}
+	\subsection{Evaluating the Approaches}
+\section{Conclusion}
+	\subsection{Problems and Obstacles}
+	\subsection{Future Opportunities}
 
 \end{document}
