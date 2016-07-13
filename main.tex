@@ -81,10 +81,90 @@
     \tableofcontents
 \end{frame}
 
-\section{Introduction}
+\section{Introduction to Information Extraction}
+	\begin{frame}{What is Information Extraction?}
+			\begin{center}
+				Goal of Information Extraction is automatically extracting information from unseen text
+				Information: entities, relations, events...
+				
+				To make the dough for a good pizza, we start with putting 1kg of flour into the mixing bowl.
+				(1kg of flour, put into, mixing bowl)
+			\end{center}
+	\end{frame}
+	\begin{frame}{Problems of Information Extraction}
+				\begin{center}
+				\begin{itemize}
+					\item Named Entity Recognition
+					\item Relationship Extraction 
+					\item Coreference Resolution
+					\item Comment Extraction
+					\item many more
+					\end{itemize}
+				\end{center}
+	\end{frame}
 \section{OIE - Principles}
-	\subsection{Motivation}
+	\subsection{Open Information Extraction}
+		\begin{frame}{Open Information Extraction}
+			\begin{center}
+				\begin{itemize}
+				IE: Extractor for each target relation
+				Open: No pre-specified extractors
+					Unsupervised learning of relation phrases
+				Extraction of information on every given domain
+				\end{itemize}
+			\end{center}
+		\end{frame}
+		\begin{frame}{Problems of Open Information Extraction}
+					\begin{center}
+						\begin{itemize}
+						\item Incoherent extractions:
+							\item This guide contains dead links and omits sites -> contains omits
+						\item Uninformative extractions:
+							\item Faust made a deal with the devil -> (Faust, made, a deal)
+							\end{itemize}
+					\end{center}
+				\end{frame}
 	\subsection{Methods}
+		\begin{frame}{Text Runner and WOE}
+			\begin{center}
+				\begin{itemize}
+				\item 1. Label: Automatic sentence labeling by heuristics
+				\item 2. Learn: A relation phrase extractor is learned
+				\item 3. Extract: Identifying NP pairs and searching relations words between
+				\end{itemize}
+			\end{center}
+		\end{frame}
+		\begin{frame}{Problems}
+					\begin{center}
+						\begin{itemize}
+						\item Large number of labeled training examples required
+						\item Alternative heuristic labeling leads to huge noise and stacked uncertainty
+						\item Ignores both holistic and lexical aspects 
+						\end{itemize}
+					\end{center}
+				\end{frame}
+		
+		
+		\begin{frame}{Lexical constraint}
+			\begin{center}
+				
+			\end{center}
+		\end{frame}
+		\begin{frame}{Syntactic constraint}
+			\begin{center}
+				
+			\end{center}
+		\end{frame}
+		\begin{frame}{Limitations of those constraints}
+			\begin{center}
+				
+			\end{center}
+		\end{frame}
+		\begin{frame}{ReVerb Extraction Algorithm}
+			\begin{center}
+				
+			\end{center}
+		\end{frame}
 	\subsection{Data Representation}
 		\begin{frame}{Standard Patterns}
 			\begin{center}
