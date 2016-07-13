@@ -144,26 +144,53 @@
 				\end{frame}
 		
 		
-		\begin{frame}{Lexical constraint}
-			\begin{center}
-				
-			\end{center}
-		\end{frame}
 		\begin{frame}{Syntactic constraint}
 			\begin{center}
-				
+				\begin{itemize}
+				\item Limits relations to those matching a certain POS Tag pattern:
+				\item V | V P | VW* P %ich mache dann Beispiele was das heißt
+				\item Always choses longest possible match
+				\item Merge ajacent matches together
+				\end{itemize}
+				\includegraphics[scale=0.5]{img/pos.png}\\
+				%beispiel mit faust
+			\end{center}
+		\end{frame}
+		\begin{frame}{Lexical constraint}
+			\begin{center}
+				\begin{itemize}
+				\item Only assume relations that appear in the corpus for a certain amount
+				\item The Obama administration \textbf{is offering only modest greenhouse gas reduction targets at} the conference
+				\end{itemize}
 			\end{center}
 		\end{frame}
 		\begin{frame}{Limitations of those constraints}
 			\begin{center}
-				
+				\begin{itemize}
+				\item In a set of 300 hand-annotated sentences 85\% relations fell into those constraints
+				\item Model is not complete and has its flaws
+				\end{itemize}
+				\includegraphics[scale=0.5]{img/constraints.png}\\	
 			\end{center}
 		\end{frame}
 		\begin{frame}{ReVerb Extraction Algorithm}
 			\begin{center}
-				
+				\begin{itemize}
+				\item Relation Extraction: Find the longest possible string of words that match the relation constraints, merge adjacents
+				\item Argument Extraction: Find the nearest NP left and right to the relation that is not a relativ pronoun, WHO-adverb or existential-there.
+				\item How is the lexical constraint being checked? By creating a list of relational phrases by applying this algorithm on a 500 million Web sentences.
+				\end{itemize}
 			\end{center}
 		\end{frame}
+		\begin{frame}{ReVerb Confidence Function}
+					\begin{center}
+						\begin{itemize}
+						\item The Algorithm has a high recall, but low precision
+						\item Now the extracted relation is weighted by a confidence function:
+						\end{itemize}
+						\includegraphics[scale=0.5]{img/sososo.png}\\
+					\end{center}
+				\end{frame}
 	\subsection{Data Representation}
 		\begin{frame}{Standard Patterns}
 			\begin{center}
