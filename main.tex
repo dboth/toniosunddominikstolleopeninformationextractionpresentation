@@ -398,7 +398,13 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 		
 		\begin{frame}{Parsing Syntax - C\&C}
 			\begin{block}{C\&C Parser}
-				Syntactical Parser that tags POS and builds Parse Trees (CCG).
+				Syntactical Parser that tags POS and builds Parse Trees in CCG.
+			\end{block}
+			
+			\begin{block}{Combinatory Categorial Grammar (CCG)}
+				Grammatical formalism allows parallel analysis of syntax and semantics\\
+				Associates words with categories that can be combined (rule-based) to form a sentence\\
+				Syntax via Category Combination, Semantics via lambda calculus
 			\end{block}
 		\end{frame}
 		
@@ -487,8 +493,6 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 				Let's now construct the RDF Graph from this information!
 			\end{center}
 		\end{frame}			
-
-		
 
 		\begin{frame}{Namespaces/Vocabularies}
 			\only<1>{
@@ -668,5 +672,14 @@ stories discuss the same news topic}
 				\end{itemize}
 			\item improve semantic analysis
 		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}[allowframebreaks]{References}
+		A. Fader, S. Soderland, O. Etzioni. Identifying relations for open information extraction. Proc. of the Conf. on Empirical Methods in Natural Language, 2011\\
+		\vspace{7pt}
+		Augenstein, Isabelle, Sebastian Padó, and Sebastian Rudolph. "Lodifier: Generating linked data from unstructured text." The Semantic Web: Research and Applications. Springer Berlin Heidelberg, 2012. 210-224.\\
+		\framebreak
+		James R. Curran, Stephen Clark, and Johan Bos. 2007. Linguistically motivated large-scale NLP with C\&C and boxer. In Proceedings of the 45th Annual Meeting of the ACL on Interactive Poster and Demonstration Sessions (ACL '07). Association for Computational Linguistics, Stroudsburg, PA, USA, 33-36.\\
+		\vspace{7pt}
 	\end{frame}
 \end{document}
