@@ -189,27 +189,21 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 				\begin{itemize}
 				\item In a set of 300 hand-annotated sentences 85\% relations fell into those constraints
 				\item Model is not complete and has its flaws
-				\item \uncover<+->{Of all relation phrases in the gold standard:
-				\begin{scriptsize}
-				\begin{itemize}
-				\item 85\% satisfied constraints and were found
-				\item 8\% Non-contiguous phrase structure\\
-				\textit{Coordination:} X is produced and maintained by Y\\
-				\textit{Multiple Args:} X was founded in 1995 by Y\\
-				\textit{Phrasal Verbs:} X turned Y off
-				\item 4\% Relation phrase not between arguments\\
-				\textit{Introductions:} Discovered by Y, X ...\\
-				\textit{Relative Cl.:} ... the Y that X discovered
-				\item 3\% Not matching POS pattern\\
-				\textit{Interrupting Modifiers:} X has a lot of faith in Y\\
-				\textit{Infinitives:} X to attack Y
-				\end{itemize}
-				\end{scriptsize}
-				}
+				
 				\end{itemize}
 				
 			\end{center}
 		\end{frame}
+		\begin{frame}{Evaluation}
+					\begin{center}
+						Of all relation phrases in the gold standard:
+						\includegraphics[scale=0.8]{img/constraints.png}\\
+						
+						\begin{scriptsize}Source: Fader et al., 2011\end{scriptsize}
+					\end{center}
+				\end{frame}
+	
+				
 		\begin{frame}{ReVerb Extraction Algorithm}
 			\begin{center}
 				\begin{itemize}
