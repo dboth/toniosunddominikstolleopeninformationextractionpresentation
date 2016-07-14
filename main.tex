@@ -271,10 +271,39 @@
 					allows to draw conclusions using rules
 				\item \textbf{Turtle}\\
 					allows syntax abbreviations
+				\item \textbf{Blanknodes}\\
+					placeholder for something without a URI
 				\item \textbf{Queries}\\
 					can be searched by querying (eg SPARQL)
 				
 			\end{itemize}
+		\end{frame}
+		
+		\begin{frame}{RDF Reification}
+			\textbf{Motivation:} How can I realize embedded propositions?\\
+			\vspace{10pt}
+			\textbf{Example:} Peter said, he watched the movie.\\ 
+			\vspace{15pt}
+			
+			\only<2>{
+			\textbf{Wrong proposition}
+			\begin{center}
+				:Peter :watched :movie
+			\end{center}
+			}
+			
+			\only<3>{
+			\textbf{Reification}\\
+			\begin{center}
+				\begin{tabular}{l}
+					:Peter :said \_:prop.\\
+					\_:prop rdf:subject :Peter.\\
+					\_:prop rdf:predicate :watched.\\
+					\_:prop rdf:object :movie. \\
+				\end{tabular}
+			\end{center}
+			}
+			
 		\end{frame}
 		
 		\begin{frame}{Vocabularies \& Ontologies}
@@ -474,28 +503,56 @@
 				\item \textbf{class:} contains classes not in wn30 nor in dbpedia
 			\end{itemize}
 			}
-		\end{frame}			
+		\end{frame}		
 		
-		\begin{frame}{RDF Construction Strategy}
-			\begin{enumerate}
-				\item<1-4> Create a blanknode \textit{\_:x} for each discourse referent (x0, x1, ...)
-				\item<2-4> if NE, then create\\
+		\begin{frame}[allowframebreaks]{RDF Construction Strategy}
+			
+			Create a blanknode \textit{\_:x} for each discourse referent (x0, x1, ...)
+			\framebreak			
+			\begin{center}
+				\includegraphics[scale=0.23]{img/oie-lodifier-rdf-output-1.png}
+			\end{center}
+			\framebreak
+			if NE, then create\\
 					\textit{\_:x drsclass:named ne:URI}
-				\item<3-4> if NE and DBpedia URI exists create\\
+			\framebreak
+			\begin{center}
+				\includegraphics[scale=0.23]{img/oie-lodifier-rdf-output-2.png}
+			\end{center}
+			\framebreak
+			if NE and DBpedia URI exists create\\
 					\textit{\_:x owl:sameAs dbpedia:URI}
-				\item<4> via rdf:type assign closed classes (event, person, ...)\\
-					\textit{\_:x rdf:type drsclass:CLOSEDCLASS}
-			\end{enumerate}		
-		\end{frame}
-		
-		\begin{frame}{RDF Construction Strategy II}
-			\begin{enumerate}							
-				\item<1-3> via rdf:type assign open classes (die, programming\_language, ...)\\
+			\framebreak
+			\begin{center}
+				\includegraphics[scale=0.23]{img/oie-lodifier-rdf-output-3.png}
+			\end{center}
+			\framebreak
+			via rdf:type assign closed classes (event, person, ...)\\
+					\textit{\_:x rdf:type drsclass:CLOSEDCLASS}			
+			\framebreak
+			\begin{center}
+				\includegraphics[scale=0.23]{img/oie-lodifier-rdf-output-4.png}
+			\end{center}
+			\framebreak
+			via rdf:type assign open classes (die, programming\_language, ...)\\
 					\textit{\_:x rdf:type wn30:OPENCLASS, class:OPENCLASS}
-				\item<2-3> create triples from binary relations (agent, theme, ...)\\
+			\framebreak
+			\begin{center}
+				\includegraphics[scale=0.23]{img/oie-lodifier-rdf-output-5.png}
+			\end{center}
+			\framebreak
+			create triples from binary relations (agent, theme, ...)\\
 					\textit{\_:x drsrel:RELATION \_:y}
-				\item<3> recursive reification of embedded propositions (eg. by \textit{report} or \textit{says)}
-			\end{enumerate}
+			\framebreak
+			\begin{center}
+				\includegraphics[scale=0.23]{img/oie-lodifier-rdf-output-6.png}
+			\end{center}
+			\framebreak
+			recursive reification of embedded propositions (eg. by \textit{report} or \textit{says)}			
+			\framebreak
+			\begin{center}
+				\includegraphics[scale=0.23]{img/oie-lodifier-rdf-output-full.png}
+			\end{center}
 		\end{frame}
 
 		\begin{frame}[fragile]{RDF Construction: Output}
@@ -525,12 +582,6 @@
 				                          rdf:predicate drsrel:agent ;
 				                          rdf:object _:var0x0 . ]
 			\end{Verbatim}
-		\end{frame}
-		
-		\begin{frame}{RDF Construction: Output as Graph}
-			\begin{center}
-				\includegraphics[scale=0.23]{img/oie-lodifier-rdf-output.png}
-			\end{center}
 		\end{frame}
 	\subsection{Experiments}
 	\begin{frame}{Method}
