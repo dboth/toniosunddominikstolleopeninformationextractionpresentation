@@ -373,8 +373,9 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 	\subsection{Architecture}
 		\begin{frame}{Architecture}
 			\begin{center}
-				\includegraphics[scale=0.25]{img/oie-lodifier-architecture.png}
+				\includegraphics[scale=0.22]{img/oie-lodifier-architecture.png}
 			\end{center}
+			\tiny{(Augenstein et al., 2012)}
 		\end{frame}
 		
 		\begin{frame}{Approach}
@@ -646,6 +647,7 @@ stories discuss the same news topic}
 		\begin{frame}{What to draw from this?}
 			\begin{itemize}
 				\item deep sementic analysis can work for OIE
+				\item combining several existing NLP Systems provides a well functioning extraction system
 				\item information gained by unsupervised OIE can already improve real world tasks
 			\end{itemize}
 		\end{frame}			
@@ -656,7 +658,7 @@ stories discuss the same news topic}
 				\item<2-7> uses many strengths of RDF
 				\item<3-7> relations arent overspecified
 				\item<4-7> extendable/improvable by improving/swapping Systems in the architecturesh
-				\item<5-7> Part of the LOD-Cloud
+				\item<5-7> part of the LOD-Cloud
 				\item<6-7> results in standardized notation
 				\item<7> domain-independent
 			\end{itemize}
@@ -677,22 +679,22 @@ stories discuss the same news topic}
 \section{Conclusion}
 	\begin{frame}{Weaknesses and Strengths of OIE}
 		\begin{itemize}
-			\item trades precision for recall
-			\item OIE > IE if no sepcial task/domain is defined
-			\item theory independent
-			\item relations may be redundant/overspecified/unintended
-			\item restricted usability of results due to low precision
+			\item<1-5> trades precision for recall
+			\item<2-5> OIE > IE if no sepcial task/domain is defined
+			\item<3-5> theory independent
+			\item<4-5> relations may be redundant/overspecified/unintended
+			\item<5> restricted usability of results due to low precision
 		\end{itemize}
 	\end{frame}
 	\begin{frame}{Future Opportunities}
 		\begin{itemize}
-			\item better subsystems\\
+			\item<1-5> better subsystems\\
 				\begin{itemize}
-					\item Coreference Resolution
-					\item NER
-					\item Disambiguation
+					\item<2-5> Coreference Resolution
+					\item<3-5> NER
+					\item<4-5> Disambiguation
 				\end{itemize}
-			\item improve semantic analysis
+			\item<5> improve semantic analysis
 		\end{itemize}
 	\end{frame}
 	
