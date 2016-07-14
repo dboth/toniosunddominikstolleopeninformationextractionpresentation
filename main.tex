@@ -77,6 +77,14 @@
 \titlepage
 \end{frame}
 
+\begin{frame}{Papers}
+
+Identifying Relations for Open Information Extraction (Fader et al., 2011)\\
+\vspace{15pt}
+LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012)
+
+\end{frame}
+
 \begin{frame}{Strukturierung}
     \tableofcontents
 \end{frame}
@@ -134,11 +142,11 @@
 	\subsection{Methods}
 		\begin{frame}{Text Runner and WOE}
 			\begin{center}
-				\begin{itemize}
-				\item \textit{1. Label:} Automatic sentence labeling by heuristics
-				\item \textit{2. Learn:} A relation phrase extractor is learned
-				\item \textit{3. Extract:} Identifying NP pairs and searching relations words between
-				\end{itemize}
+				\begin{enumerate}
+				\item \textit{Label:} Automatic sentence labeling by heuristics
+				\item \textit{Learn:} A relation phrase extractor is learned
+				\item \textit{Extract:} Identifying NP pairs and searching relations words between
+				\end{enumerate}
 			\end{center}
 		\end{frame}
 		\begin{frame}{Problems}
@@ -603,14 +611,18 @@
 		\end{frame}
 	\subsection{Conclusions}
 		\begin{frame}{What to draw from this?}
-
+			TODO
 		\end{frame}			
 		
 		\begin{frame}{What we liked}
 			\begin{itemize}
 				\item full-text OIE
+				\item uses many strengths of RDF
 				\item relations arent overspecified
-				\item TO BE EXTENDED
+				\item extendable/improvable by improving/swapping Systems in the architecture
+				\item Part of the LOD-Cloud
+				\item results in standardized notation
+				\item domain-independent
 			\end{itemize}
 		\end{frame}
 		
@@ -619,19 +631,32 @@
 				\item Redundant processes like NER
 				\item BlankNode Massacre
 				\item confusing boxer relations not simplified for RDF (will be hard to search through)
-				\item TO BE EXTENDED
 				
 				\vspace{15pt}
 				
-				\item Paper scraches only the surface of the system
+				\item Paper scratches only the surface of the system
 				\item Some points are unclear / not even described
 			\end{itemize}
 		\end{frame}
-\section{OIE Systems in Context}
-	\subsection{Comparison}
-	\subsection{Evaluating the Approaches}
 \section{Conclusion}
-	\subsection{Problems and Obstacles}
-	\subsection{Future Opportunities}
-
+	\begin{frame}{Weaknesses and Strengths of OIE}
+		\begin{itemize}
+			\item trades precision for recall
+			\item OIE > IE if no sepcial task/domain is defined
+			\item theory independent
+			\item relations may be redundant/overspecified/unintended
+			\item restricted usability of results due to low precision
+		\end{itemize}
+	\end{frame}
+	\begin{frame}{Future Opportunities}
+		\begin{itemize}
+			\item better subsystems\\
+				\begin{itemize}
+					\item Coreference Resolution
+					\item NER
+					\item Disambiguation
+				\end{itemize}
+			\item improve semantic analysis
+		\end{itemize}
+	\end{frame}
 \end{document}
