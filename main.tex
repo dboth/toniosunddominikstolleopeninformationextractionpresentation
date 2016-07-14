@@ -84,11 +84,13 @@
 \section{Introduction to Information Extraction}
 	\begin{frame}{What is Information Extraction?}
 			\begin{center}
+			\begin{block}{Information Extraction}
 				Goal of Information Extraction is automatically extracting information from unseen text\\
-				Information: entities, relations, events...\\
+				\textit{Information:} entities, relations, events...\\
+				\end{block}
 				\vspace{15pt}
 				To make the dough for a good pizza, we start with putting 1kg of flour into the mixing bowl.\\
-				(1kg of flour, put into, mixing bowl)
+				\textit{(1kg of flour, put into, mixing bowl)}
 			\end{center}
 	\end{frame}
 	\begin{frame}{Problems of Information Extraction}
@@ -98,7 +100,7 @@
 					\item Relationship Extraction 
 					\item Coreference Resolution
 					\item Comment Extraction
-					\item many more
+					\item many more..
 					\end{itemize}
 				\end{center}
 	\end{frame}
@@ -107,9 +109,9 @@
 		\begin{frame}{Open Information Extraction}
 			\begin{center}
 				
-				IE: Extractor for each target relation\\
+				\textit{IE:} Extractor for each target relation\\
 				\vspace{10pt}
-				Open: No pre-specified extractors\\
+				\textit{Open:} No pre-specified extractors\\
 				\vspace{10pt}
 				Unsupervised learning of relation phrases\\
 				\vspace{10pt}
@@ -121,9 +123,11 @@
 					\begin{center}
 						\begin{itemize}
 						\item \textbf{Incoherent extractions:}\\
-							This guide contains dead links and omits sites -> contains omits
+							This guide contains dead links and omits sites
+							\\\textit{contains omits}
 						\item \textbf{Uninformative extractions:}\\
-							Faust made a deal with the devil -> (Faust, made, a deal)
+							Faust made a deal with the devil
+							\\ \textit{(Faust, made, a deal)}
 						\end{itemize}
 					\end{center}
 				\end{frame}
@@ -131,9 +135,9 @@
 		\begin{frame}{Text Runner and WOE}
 			\begin{center}
 				\begin{itemize}
-				\item 1. Label: Automatic sentence labeling by heuristics
-				\item 2. Learn: A relation phrase extractor is learned
-				\item 3. Extract: Identifying NP pairs and searching relations words between
+				\item \textit{1. Label:} Automatic sentence labeling by heuristics
+				\item \textit{2. Learn:} A relation phrase extractor is learned
+				\item \textit{3. Extract:} Identifying NP pairs and searching relations words between
 				\end{itemize}
 			\end{center}
 		\end{frame}
@@ -156,7 +160,7 @@
 				\item Always choses longest possible match
 				\item Merge ajacent matches together
 				\end{itemize}
-				\includegraphics[scale=0.5]{img/pos.png}\\
+				\includegraphics[scale=1.5]{img/pos.png}\\
 				%beispiel mit faust
 			\end{center}
 		\end{frame}
@@ -174,14 +178,14 @@
 				\item In a set of 300 hand-annotated sentences 85\% relations fell into those constraints
 				\item Model is not complete and has its flaws
 				\end{itemize}
-				\includegraphics[scale=0.5]{img/constraints.png}\\	
+				\includegraphics[scale=0.7]{img/constraints.png}\\	
 			\end{center}
 		\end{frame}
 		\begin{frame}{ReVerb Extraction Algorithm}
 			\begin{center}
 				\begin{itemize}
-				\item Relation Extraction: Find the longest possible string of words that match the relation constraints, merge adjacents
-				\item Argument Extraction: Find the nearest NP left and right to the relation that is not a relativ pronoun, WHO-adverb or existential-there.
+				\item \textit{Relation Extraction: }Find the longest possible string of words that match the relation constraints, merge adjacents
+				\item \textit{Argument Extraction:} Find the nearest NP left and right to the relation that is not a relativ pronoun, WHO-adverb or existential-there.
 				\item How is the lexical constraint being checked? By creating a list of relational phrases by applying this algorithm on a 500 million Web sentences.
 				\end{itemize}
 			\end{center}
@@ -192,7 +196,34 @@
 						\item The Algorithm has a high recall, but low precision
 						\item Now the extracted relation is weighted by a confidence function:
 						\end{itemize}
-						\includegraphics[scale=0.5]{img/sososo.png}\\
+						
+					\end{center}
+				\end{frame}
+				\begin{frame}{ReVerb Confidence Function}
+					\begin{center}
+						
+						\includegraphics[scale=0.8]{img/sososo.png}\\
+					\end{center}
+				\end{frame}
+				\begin{frame}{Evaluation}
+					\begin{center}
+						
+						\includegraphics[scale=0.8]{img/reverbeval.png}\\
+						Better results than TextRunner through lexical features, but still low recall.
+					\end{center}
+				\end{frame}
+				\begin{frame}{Why?}
+					\begin{center}
+						
+						\includegraphics[scale=0.7]{img/reverbeval2.png}\\
+						Argument extraction is open to improvements
+					\end{center}
+				\end{frame}
+				\begin{frame}{Why?}
+					\begin{center}
+						Evaluating the evaluation: 
+						\includegraphics[scale=0.7]{img/reverberrortypes.png}\\
+						
 					\end{center}
 				\end{frame}
 	\subsection{Data Representation}
@@ -502,6 +533,23 @@
 			\end{center}
 		\end{frame}
 	\subsection{Experiments}
+	\begin{frame}{Method}
+			\begin{center}
+				\begin{itemize}
+				\item TDT-2 benchmark dataset: 84.000 news documents
+				\end{itemize}
+			\end{center}
+		\end{frame}
+		\begin{frame}{Accuracy}
+			\begin{center}
+				\includegraphics[scale=0.5]{img/lodifierevatab.png}
+			\end{center}
+		\end{frame}
+		\begin{frame}{Precision - Recall}
+			\begin{center}
+				\includegraphics[scale=1]{img/lodifierevaplot.png}
+			\end{center}
+		\end{frame}
 	\subsection{Conclusions}
 		\begin{frame}{What to draw from this?}
 
