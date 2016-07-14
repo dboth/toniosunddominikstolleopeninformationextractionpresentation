@@ -164,11 +164,15 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 			\begin{center}
 				\begin{itemize}
 				\item Limits relations to those matching a certain POS Tag pattern:
-				\item V | V P | VW* P %ich mache dann Beispiele was das heißt
 				\item Always choses longest possible match
 				\item Merge ajacent matches together
 				\end{itemize}
-				\includegraphics[scale=1.5]{img/pos.png}\\
+				\begin{block}{V | V P | VW* P}
+					V = verb particle? adv?\\
+					W = (noun | adj | adv | pron |det)\\
+					P = (prep | particle | inf. marker)
+				\end{block}
+				\textit{Faust made a deal with the devil}
 				%beispiel mit faust
 			\end{center}
 		\end{frame}
@@ -185,8 +189,22 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 				\begin{itemize}
 				\item In a set of 300 hand-annotated sentences 85\% relations fell into those constraints
 				\item Model is not complete and has its flaws
+				\item Of all relation phrases in the gold standard:
+				\begin{itemize}
+				\item 85\% satisfied constraints and were found
+				\item 8\% Non-contiguous phrase structure\\
+				\textit{Coordination:} X is produced and maintained by Y\\
+				\textit{Multiple Args:} X was founded in 1995 by Y\\
+				\textit{Phrasal Verbs:} X turned Y off
+				\item 4\% Relation phrase not between arguments\\
+				\textit{Introductions:} Discovered by Y, X ...\\
+				\textit{Relative Cl.:} ... the Y that X discovered
+				\item 3\% Not matching POS pattern\\
+				\textit{Interrupting Modifiers:} X has a lot of faith in Y\\
+				\textit{Infinitives:} X to attack Y
 				\end{itemize}
-				\includegraphics[scale=0.7]{img/constraints.png}\\	
+				\end{itemize}
+				
 			\end{center}
 		\end{frame}
 		\begin{frame}{ReVerb Extraction Algorithm}
@@ -202,48 +220,54 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 					\begin{center}
 						\begin{itemize}
 						\item The Algorithm has a high recall, but low precision
-						\item Now the extracted relation is weighted by a confidence function:
+						\item Now the extracted relation is weighted by a confidence function:\\
+						Examples:
+						\begin{itemize}	
+						\item 1.16 (x, r, y) covers all words in s
+						\item 0.50 The last preposition in r is for
+						\item 0.43 len(s) under 10
+						\item -0.65 There is a preposition to the left of x in s 
+						\item ...
+						\end{itemize}
 						\end{itemize}
 						
 					\end{center}
 				\end{frame}
-				\begin{frame}{ReVerb Confidence Function}
-					\begin{center}
-						
-						\includegraphics[scale=0.8]{img/sososo.png}\\
-					\end{center}
-				\end{frame}
+				
 				\begin{frame}{Evaluation}
 					\begin{center}
 						
 						\includegraphics[scale=0.8]{img/reverbeval.png}\\
-						Better results than TextRunner through lexical features, but still low recall.
+						Better results than TextRunner through lexical features, but still low recall.\\
+						\begin{scriptsize}Source: Fader et al., 2011\end{scriptsize}
 					\end{center}
 				\end{frame}
 				\begin{frame}{Why?}
 					\begin{center}
 						
 						\includegraphics[scale=0.7]{img/reverbeval2.png}\\
-						Argument extraction is open to improvements
+						Argument extraction is open to improvements\\
+						\begin{scriptsize}Source: Fader et al., 2011\end{scriptsize}
 					\end{center}
 				\end{frame}
 				\begin{frame}{Why?}
 					\begin{center}
 						Evaluating the evaluation: 
 						\includegraphics[scale=0.7]{img/reverberrortypes.png}\\
-						
+						\begin{scriptsize}Source: Fader et al., 2011\end{scriptsize}
 					\end{center}
 				\end{frame}
 				\begin{frame}{Conclusion}
 					\begin{center}
 					Acceptable results on easy sentences. Fails on more complex sentences.
 					\vspace{15pt}
-					\textit{Possible improvements:}
+					\textit{Possible points of improvement:}
 						\begin{itemize}
 						\item Does not support n-ary relations
 						\item Relations seem overly specific in many results
 						\item Coordination is not in all cases correctly recognized
 						\item Coreference is not predetected by the system 
+						\item Syntactic fixation on S-V-O word order
 						\end{itemize}
 						
 					\end{center}
@@ -615,7 +639,7 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 				\begin{itemize}
 				\item Evaluate by testing similarity of two given documents:
 				\item \textit{the problem of deciding whether two randomly selected
-stories discuss the same news topic}
+stories discuss the same news topic} \begin{scriptsize}(Augenstein et al., 2012)\end{scriptsize}
 				\item TDT-2 benchmark dataset: 84.000 news documents
 				\item Extract 183 positive and 183 negative pairs (avg. 11.2 per topic)
 				\item Calculate similarity and evaluate the system on the result
@@ -636,11 +660,13 @@ stories discuss the same news topic}
 			\begin{center}
 				\includegraphics[scale=0.5]{img/lodifierevatab.png}
 			\end{center}
+			\begin{scriptsize}Source: Augenstein et al., 2012\end{scriptsize}
 		\end{frame}
 		\begin{frame}{Precision - Recall}
 			\begin{center}
 				\includegraphics[scale=1]{img/lodifierevaplot.png}
 			\end{center}
+			\begin{scriptsize}Source: Augenstein et al., 2012\end{scriptsize}
 		\end{frame}
 	\subsection{Conclusions}
 		\begin{frame}{What to draw from this?}
