@@ -97,8 +97,8 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 				\textit{Information:} entities, relations, events...\\
 				\end{block}
 				\vspace{15pt}
-				To make the dough for a good pizza, we start with putting 1kg of flour into the mixing bowl.\\
-				\textit{(1kg of flour, put into, mixing bowl)}
+				\uncover<+->{To make the dough for a good pizza, we start with putting 1kg of flour into the mixing bowl.\\
+				\textit{(1kg of flour, put into, mixing bowl)}}
 			\end{center}
 	\end{frame}
 	\begin{frame}{Problems of Information Extraction}
@@ -133,9 +133,9 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 						\item \textbf{Incoherent extractions:}\\
 							This guide contains dead links and omits sites
 							\\\textit{contains omits}
-						\item \textbf{Uninformative extractions:}\\
+						\item \uncover<+->{\textbf{Uninformative extractions:}\\
 							Faust made a deal with the devil
-							\\ \textit{(Faust, made, a deal)}
+							\\ \textit{(Faust, made, a deal)}}
 						\end{itemize}
 					\end{center}
 				\end{frame}
@@ -189,7 +189,8 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 				\begin{itemize}
 				\item In a set of 300 hand-annotated sentences 85\% relations fell into those constraints
 				\item Model is not complete and has its flaws
-				\item Of all relation phrases in the gold standard:
+				\item \uncover<+->{Of all relation phrases in the gold standard:
+				\begin{scriptsize}
 				\begin{itemize}
 				\item 85\% satisfied constraints and were found
 				\item 8\% Non-contiguous phrase structure\\
@@ -203,6 +204,8 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 				\textit{Interrupting Modifiers:} X has a lot of faith in Y\\
 				\textit{Infinitives:} X to attack Y
 				\end{itemize}
+				\end{scriptsize}
+				}
 				\end{itemize}
 				
 			\end{center}
@@ -659,13 +662,13 @@ stories discuss the same news topic} \begin{scriptsize}(Augenstein et al., 2012)
 		\end{frame}
 		\begin{frame}{Accuracy}
 			\begin{center}
-				\includegraphics[scale=0.5]{img/lodifierevatab.png}
+				\includegraphics[scale=1]{img/lodifierevatab.png}
 			\end{center}
 			\begin{scriptsize}Source: Augenstein et al., 2012\end{scriptsize}
 		\end{frame}
 		\begin{frame}{Precision - Recall}
 			\begin{center}
-				\includegraphics[scale=1]{img/lodifierevaplot.png}
+				\includegraphics[scale=0.8]{img/lodifierevaplot.png}
 			\end{center}
 			\begin{scriptsize}Source: Augenstein et al., 2012\end{scriptsize}
 		\end{frame}
