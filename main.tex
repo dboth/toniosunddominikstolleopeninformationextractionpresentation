@@ -236,7 +236,15 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 				\end{frame}
 				\begin{frame}{Conclusion}
 					\begin{center}
-						
+					Acceptable results on easy sentences. Fails on more complex sentences.
+					\vspace{15pt}
+					\textit{Possible improvements:}
+						\begin{itemize}
+						\item Does not support n-ary relations
+						\item Relations seem overly specific in many results
+						\item Coordination is not in all cases correctly recognized
+						\item Coreference is not predetected by the system 
+						\end{itemize}
 						
 					\end{center}
 				\end{frame}
@@ -606,7 +614,18 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 stories discuss the same news topic}
 				\item TDT-2 benchmark dataset: 84.000 news documents
 				\item Extract 183 positive and 183 negative pairs (avg. 11.2 per topic)
+				\item Calculate similarity and evaluate the system on the result
 				\end{itemize}
+			\end{center}
+		\end{frame}
+		\begin{frame}{Similarity measurements}
+			\begin{center}
+				\begin{enumerate}
+				\item NEs identified by Wikifier and sucessfully disambiguated words in UKB
+				\item add NEs recognized by Boxer
+				\item add URIs of unrecognized words
+				\end{enumerate}
+			\textit{Further add structural features:} Measurement of the similarity of the RDF graphs of the two document
 			\end{center}
 		\end{frame}
 		\begin{frame}{Accuracy}
