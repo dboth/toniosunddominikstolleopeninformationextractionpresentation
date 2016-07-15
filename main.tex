@@ -371,8 +371,8 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 				dbr:Barack_Obama a foaf:person, :President;
 				    dbo:spouse dbr:Michelle_Obama.
 				dbr:Bernie_Sanders dbo:birthPlace dbr:New_York, 
-				                                  dbr:Brooklyn;
-				dbr:Brooklyn dbo:isPartOf dbr:New_York 	
+				                                  dbr:Brooklyn.
+				dbr:Brooklyn dbo:isPartOf dbr:New_York.
 			\end{verbatim}
 		\end{frame}
 		
@@ -383,7 +383,7 @@ LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012
 		\end{frame}
 
 \section{Example: LODifier}
-	\begin{frame}{LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012}
+	\begin{frame}{LODifier: Generating Linked Data from Unstructured Text (Augenstein et al., 2012)}
 		\begin{center}
 			Generate an RDF Graph from unstructured Text\\
 			\vspace{15pt}
@@ -671,7 +671,7 @@ stories discuss the same news topic} \begin{scriptsize}(Augenstein et al., 2012)
 	\subsection{Conclusions}
 		\begin{frame}{What to draw from this?}
 			\begin{itemize}
-				\item deep sementic analysis can work for OIE
+				\item deep semantic analysis can work for OIE
 				\item combining several existing NLP Systems provides a well functioning extraction system
 				\item information gained by unsupervised OIE can already improve real world tasks
 			\end{itemize}
@@ -682,7 +682,7 @@ stories discuss the same news topic} \begin{scriptsize}(Augenstein et al., 2012)
 				\item<1-7> full-text OIE
 				\item<2-7> uses many strengths of RDF
 				\item<3-7> relations arent overspecified
-				\item<4-7> extendable/improvable by improving/swapping Systems in the architecturesh
+				\item<4-7> extendable/improvable by improving/swapping Systems in the architecture
 				\item<5-7> part of the LOD-Cloud
 				\item<6-7> results in standardized notation
 				\item<7> domain-independent
@@ -714,14 +714,15 @@ stories discuss the same news topic} \begin{scriptsize}(Augenstein et al., 2012)
 	\end{frame}
 	\begin{frame}{Future Opportunities}
 		\begin{itemize}
-			\item<1-6> better subsystems\\
+			\item<1-7> better subsystems\\
 				\begin{itemize}
-					\item<2-6> Coreference Resolution
-					\item<3-6> NER
-					\item<4-6> Disambiguation
+					\item<2-7> Coreference Resolution
+					\item<3-7> NER
+					\item<4-7> Disambiguation
 				\end{itemize}
-			\item<5-6> improve semantic analysis
-			\item<6> use semantic on top of syntax
+			\item<5-7> improve semantic analysis
+			\item<6-7> use semantic on top of syntax
+			\item<7> improve data representation for better further processing
 		\end{itemize}
 	\end{frame}
 	
